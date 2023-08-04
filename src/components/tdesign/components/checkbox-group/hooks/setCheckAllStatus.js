@@ -1,0 +1,36 @@
+import {
+	computed
+} from "vue";
+import {
+	intersection
+} from 'lodash-es'
+
+export const setCheckAllStatus = (optionList, innerValue, checkedSet) => {
+	const {
+		isArray
+	} = Array;
+	const intersectionLen = computed(() => {
+		const values = optionList.value?.map((item) => item.value)
+		if (isArray(innerValue.value)) {
+			return intersection(innerValue.value, values).length
+		}
+		return 0
+	})
+
+	const isAllChecked = computed(() => {
+		if (checkedSet.value.size !== optionList.value.length - 1) {
+			return false;
+		}
+		return intersectionLen.value === optionList.value.length - 1;
+	})
+
+	const indeterminate = computed(() => {
+		return !isAllChecked.value && intersectionLen.value < optionList.value.length && intersectionLen
+			.value > 0;
+	})
+	return computed(() => {
+		if (isAllChecked.value) return 'checked';
+		if (indeterminate.value) return 'indeterminate';
+		return 'uncheck';
+	});
+}

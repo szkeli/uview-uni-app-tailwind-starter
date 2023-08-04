@@ -1,0 +1,22 @@
+@import './index.less';
+
+.@{prefix}-form {
+  background-color: #fff;
+  // 覆盖一些组件样式
+  .@{prefix}-cell,
+  .@{prefix}-input,
+  .@{prefix}-textarea,
+  .@{prefix}-upload {
+    padding: 0 !important;
+  }
+  
+  .@{prefix}-radio-group{
+	  width: 100%;
+	  display: flex;
+	  justify-content: space-between;
+  }
+  .@{prefix}-textarea {
+  	height: 100px;
+  	width: 100%;
+  }
+}

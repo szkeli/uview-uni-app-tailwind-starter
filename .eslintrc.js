@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {
-    'vue/multi-word-component-names': 1
+    'vue/multi-word-component-names': 'off'
   },
   overrides: [
     {

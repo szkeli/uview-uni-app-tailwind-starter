@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 // import Components from 'unplugin-vue-components/vite'
 // 假如要加载一些 commonjs 模块，需要引入这个插件，很多地图的sdk都是 commonjs，假如引用报错需要引入它并添加到 `plugins` 里
 // import commonjs from "@rollup/plugin-commonjs";
@@ -27,16 +28,24 @@ if (!WeappTailwindcssDisabled) {
 export default defineConfig({
   // uvtw 一定要放在 uni 后面
   plugins: [
-    uni(),
-    uvtw({
-      disabled: WeappTailwindcssDisabled
+    Components({
+      dts: 'src/types/components.d.ts',
+      dirs: ['src/components']
     }),
     AutoImport({
       imports: ['vue', 'uni-app', 'pinia'],
-      dts: './src/auto-imports.d.ts',
+      dts: 'src/types/components.d.ts',
       eslintrc: {
         enabled: true
       }
+    }),
+    uni({
+      vueOptions: {
+        reactivityTransform: true
+      }
+    }),
+    uvtw({
+      disabled: WeappTailwindcssDisabled
     })
     // uni-app vite 中不起作用，不知道为啥
     // Components({

@@ -1,0 +1,139 @@
+@import '../../../common/style/index.less';
+
+@form-item-vertical-padding: 32rpx;
+@form-item-horizontal-padding: 32rpx;
+@form-item-border-left-space: @form-item-horizontal-padding;
+@form-item-border-right-space: 0;
+@form-item-border-color: var(--td-component-stroke, @gray-color-3);
+
+
+.@{prefix}-form {
+  background-color: #fff;
+  &__item {
+    display: flex;
+    box-sizing: border-box;
+    padding: @form-item-vertical-padding @form-item-horizontal-padding;
+    position: relative;
+
+    &:not(:last-child)::after {
+      .hairline-bottom(@form-item-border-color);
+
+      left: @form-item-border-left-space;
+      right: @form-item-border-right-space;
+    }
+
+    &-help,
+    &-extra {
+      display: flex;
+      font-size: 24rpx;
+      margin: 0;
+      width: 100%;
+      height: auto;
+      min-height: 40rpx;
+      margin-top: 6rpx;
+    }
+
+    &-help {
+      color: @font-gray-4;
+    }
+
+    &--error {
+      color: @error-color-6;
+    }
+
+    &--warning {
+      color: @warning-color-5;
+    }
+
+    &-wrap {
+      width: 100%;
+    }
+
+    &--top {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &--top {
+    align-items: center;
+  }
+
+  &__label {
+    float: left;
+    padding-right: 32rpx;
+    vertical-align: middle;
+    line-height: 48rpx;
+    color: @font-gray-1;
+    box-sizing: border-box;
+    word-break: break-all;
+	font-size: 32rpx;
+
+    &--top {
+      padding-bottom: 16rpx;
+    }
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--required {
+      text::before {
+        display: inline-block;
+        margin-right: 4rpx;
+        color: @error-color-6;
+        line-height: 40rpx;
+        content: "*";
+      }
+    }
+
+    &--colon {
+      text::after {
+        content: ":";
+        position: relative;
+        margin: 0 4rpx;
+      }
+    }
+  }
+
+  &__controls {
+    display: flow-root;
+    position: relative;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      min-height: 48rpx;
+    }
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+// 覆盖一些组件样式
+  .@{prefix}-cell,
+  .@{prefix}-input,
+  .@{prefix}-textarea,
+  .@{prefix}-upload {
+    padding: 0;
+  }
+  
+  .@{prefix}-radio-group{
+  	  width: 100%;
+  	  display: flex;
+  	  justify-content: space-between;
+  }
+  .@{prefix}-textarea {
+  	height: 100px;
+  	width: 100%;
+  }
+ 
+}
