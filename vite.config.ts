@@ -33,8 +33,8 @@ export default defineConfig({
       dirs: ['src/components']
     }),
     AutoImport({
+      dts: 'src/types/autoimport.d.ts',
       imports: ['vue', 'uni-app', 'pinia'],
-      dts: 'src/types/components.d.ts',
       eslintrc: {
         enabled: true
       }

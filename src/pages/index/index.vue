@@ -1,16 +1,17 @@
 <template>
   <view>
     <WeappTailwindcss></WeappTailwindcss>
-
-    <!-- <t-button size="small" theme="primary" variant="outline">描边按钮</t-button> -->
-    <button class="w-40" @click="increment">你好</button>
+    <view class="flex justify-center w-full">
+      <view class="w-20" hover-class="none" hover-stop-propagation="false">
+        <u-button type="primary" @click="increment">提交</u-button>
+      </view>
+    </view>
   </view>
 </template>
 
 <script setup lang="ts">
 import WeappTailwindcss from '@/components/WeappTailwindcss.vue'
 import { useCounterStore } from '@/stores/counter'
-// import TButton from '@/components/tdesign/components/button/index.vue'
 
 const useCounter = useCounterStore()
 const { count } = $(storeToRefs(useCounter))

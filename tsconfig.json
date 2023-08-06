@@ -10,7 +10,12 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types", "vue/ref-macros"],
+    "types": [
+      "@ttou/uview-typings/v3",
+      "@ttou/uview-typings/refs",
+      "@dcloudio/types",
+      "vue/ref-macros"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
