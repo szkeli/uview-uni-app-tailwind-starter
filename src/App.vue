@@ -24,7 +24,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss">
-@import 'tdesign-mobile-vue/es/style/index.css';
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
